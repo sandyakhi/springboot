@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Search</title>
+	</head>
+	<body>
+		<h2>Search for a employee</h2>
+		<form th:action="@{/searchbyid}" method="post">
+			<label for="id">EnterID:</label>
+			<input type="number" name="id" id="id" required>
+			<button type="submit">Search</button>
+		</form>
+		<div th:if="${employee!=null}">		
+			<tr th:each="employee:${employees}">
+								<td th:text="${employee.id}"></td>
+								<td th:text="${employee.empName}"></td>
+								<td th:text="${employee.salary}"></td>
+								<td th:text="${employee.department}"></td>
+								<td th:text="${employee.role}"></td>
+								<td th:text="${employee.ta}"></td>
+								<td th:text="${employee.da}"></td>
+								<td th:text="${product.hra}"></td>
+								<td th:text="${product.pf}"></td>
+								<td th:text="${product.esi}"></td>
+								<td th:text="${product.total}"></td>
+								
+			<h3>Employee Details</h3>
+			<p><strong>id:</strong><span th:text="${employee.id}"></span></p>
+			<p><strong>Name:</strong><span th:text="${employee.empName}"></span></p>
+			<p><strong>Brand</strong><span th:text="${employee.salary}"></span></p>
+			<p><strong>MadeIn:</strong><span th:text="${{employee.department}"></span></p>
+			<p><strong>Price:</strong><span th:text="${employee.role}"></span></p>
+			<p><strong>Quantity:</strong><span th:text="${employee.ta}"></span></p>
+			<p><strong>DiscountRate:</strong><span th:text="${c.da}"></span></p>
+			<p><strong>taxPrice:</strong><span th:text="$employee.hra}"></span></p>
+			<p><strong>discountprice:</strong><span th:text="${employee.pf}"></span></p>
+			<p><strong>Offerprice:</strong><span th:text="$employee.esi}"></span></p>
+			<p><strong>Finalprice:</strong><span th:text="${employee.total}"></span></p>
+			
+		</div>
+		<div th:if="${employee == null}">
+			<p>No Employee found with the given ID.</p>
+		</div>
+	</body>
+</html>
